@@ -1,7 +1,7 @@
 // Your code goes here
 
 
-//
+//Turns the "Welcome to Fun Bus to Orange and Purple"
 const test = document.querySelector('h2')
 test.addEventListener("mouseover", e => {
     event.target.style.color ="purple";
@@ -17,7 +17,7 @@ test.addEventListener("mouseout", e => {
     })
 })
 
-//Mouseenter/Mouseleave on all the pictures
+//Scales all of the images to a bigger size
 const scaleUp = document.querySelectorAll('img');
 scaleUp.forEach(item => {
   item.addEventListener('mouseenter', event => {
@@ -33,7 +33,7 @@ scaleDown.forEach(item => {
   })
 })
 
-//Wheel on the Nav
+//Allows the nav to grow in size
 
 function zoom(event) {
     event.preventDefault();
@@ -46,15 +46,39 @@ function zoom(event) {
     // Apply scale transform
     el.style.transform = `scale(${scale})`;
   }
-  
-  let scale = 1;
+let scale = 1;
   const el = document.querySelector('nav');
   el.onwheel = zoom;
 
-
-
+//Loads a message 
 
   window.addEventListener('load', e => {
     console.log('page is fully loaded');
     alert('This is the load event');
   });
+
+//Turns the nav background to aqua
+  const nav = document.querySelector(".nav");
+  nav.addEventListener("dblclick", (e) => {
+    e.target.style.backgroundColor = 'aqua';
+  });
+
+//Changes the intro when clicked
+const newDesc = document.querySelector('.intro p');
+
+newDesc.addEventListener('click', e => {
+  newDesc.style.backgroundColor = "aqua";
+  newDesc.textContent = "This is a new description!"
+})
+
+// Drag the fun bus intro img to 50%
+const funBusBanner = document.querySelector(".intro img" );
+funBusBanner.addEventListener('drag', (e) => e.target.style.transform = 'scale(.5)');
+
+//Says Ouch when resizing the window.
+window.addEventListener('resize', () => alert("OUCHHHH!!!!"));
+
+// Prevents the nav links from reloading
+nav.addEventListener('click', (e) => {e.preventDefault();
+  console.log("clicked on navlink");}
+  );
