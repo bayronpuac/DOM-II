@@ -50,3 +50,11 @@ function zoom(event) {
   let scale = 1;
   const el = document.querySelector('nav');
   el.onwheel = zoom;
+
+
+
+
+  window.addEventListener('load', e => {
+    console.log('page is fully loaded');
+    alert('This is the load event');
+  });
